@@ -4,5 +4,6 @@ metadata:
   name: stefanprodan
   namespace: default
 spec:
+  interval: 1m
   type: oci
   url: oci://ghcr.io/stefanprodan/charts
