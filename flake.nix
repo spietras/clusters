@@ -41,6 +41,7 @@
         coreutils = pkgs.coreutils;
         trunk = pkgs.trunk-io;
         copier = pkgs.copier;
+        flux = pkgs.fluxcd;
       in {
         # Override pkgs argument
         _module.args.pkgs = import inputs.nixpkgs {
@@ -70,6 +71,7 @@
               coreutils
               trunk
               copier
+              flux
             ];
 
             shellHook = ''
