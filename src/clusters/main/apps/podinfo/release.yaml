@@ -7,9 +7,9 @@ spec:
   chart:
     spec:
       chart: podinfo
-      interval: 1m
+      interval: 5m
       sourceRef:
         kind: HelmRepository
         name: stefanprodan
         namespace: default
-  interval: 1m
+  interval: 5m
