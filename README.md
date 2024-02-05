@@ -5,6 +5,7 @@
 Flux manifests for my k8s clusters ☸️
 
 [![Lint](https://github.com/spietras/clusters/actions/workflows/lint.yaml/badge.svg)](https://github.com/spietras/clusters/actions/workflows/lint.yaml)
+[![Test](https://github.com/spietras/clusters/actions/workflows/test.yaml/badge.svg)](https://github.com/spietras/clusters/actions/workflows/test.yaml)
 [![Docs](https://github.com/spietras/clusters/actions/workflows/docs.yaml/badge.svg)](https://github.com/spietras/clusters/actions/workflows/docs.yaml)
 
 </div>
