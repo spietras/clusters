@@ -10,6 +10,6 @@ spec:
       interval: 1m
       sourceRef:
         kind: HelmRepository
-        name: podinfo
+        name: stefanprodan
         namespace: default
   interval: 1m
