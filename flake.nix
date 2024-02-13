@@ -42,6 +42,7 @@
         trunk = pkgs.trunk-io;
         copier = pkgs.copier;
         flux = pkgs.fluxcd;
+        sops = pkgs.sops;
       in {
         # Override pkgs argument
         _module.args.pkgs = import inputs.nixpkgs {
@@ -72,6 +73,7 @@
               trunk
               copier
               flux
+              sops
             ];
 
             shellHook = ''
