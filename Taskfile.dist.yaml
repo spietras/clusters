@@ -121,3 +121,10 @@ tasks:
         docs
         --
         {{ .CLI_ARGS | default "start --host 0.0.0.0" }}
+  secret:
+    desc: Edit secrets
+    interactive: true
+    cmds:
+      - >
+        sops
+        {{ .CLI_ARGS }}
