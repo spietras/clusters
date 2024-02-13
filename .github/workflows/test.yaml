@@ -12,6 +12,7 @@ name: Test
     paths:
       - .github/workflows/test.yaml
       - src/**
+      - tests/**
       - .sourceignore
   # Run also on pull requests to main branch
   pull_request:
@@ -21,6 +22,7 @@ name: Test
     paths:
       - .github/workflows/test.yaml
       - src/**
+      - tests/**
       - .sourceignore
 
 jobs:
