@@ -70,6 +70,8 @@ jobs:
           '${{ github.actor }}'
           --password
           '${{ github.token }}'
+          --ignore-paths
+          '!/tests/'
       - name: Add Kustomization to Flux
         run: >
           flux
@@ -79,7 +81,7 @@ jobs:
           --source
           main
           --path
-          'src/clusters/${{ matrix.cluster }}'
+          'tests/clusters/${{ matrix.cluster }}'
           --wait
       - name: Debug failures
         if: failure()
