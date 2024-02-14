@@ -1,0 +1,9 @@
+# Configure labels transformer
+commonLabels:
+  # Add a label in the metadata section
+  - path: metadata/labels
+    create: true
+  # Add a label in the metadata section of pods in deployment templates
+  - path: spec/template/metadata/labels
+    kind: Deployment
+    create: true

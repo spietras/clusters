@@ -1,4 +1,6 @@
+# Configure names transformer
 nameReference:
+  # Replace secret names
   - kind: Secret
     version: v1
     fieldSpecs:
