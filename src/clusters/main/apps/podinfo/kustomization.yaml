@@ -13,3 +13,8 @@ labels:
   - pairs:
       layer: apps
     includeTemplates: true
+    fields:
+      # Set also chart labels in HelmReleases
+      - path: spec/chart/metadata/labels
+        kind: HelmRelease
+        create: true
