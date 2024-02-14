@@ -1,12 +1,22 @@
+# Create tailscale Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+# Include the following configuration files
 configurations:
-  - kustomizeconfig.yaml
+  - configurations/labels.yaml
+  - configurations/names.yaml
+# Include the following resources
 resources:
-  - release.yaml
-  - source.yaml
+  - resources/namespace.yaml
+  - resources/release.yaml
+  - resources/source.yaml
+# Set the namespace for all resources
+namespace: tailscale
+# Set labels for all resources
+commonLabels:
+  layer: infrastructure
+# Generate secrets
 secretGenerator:
   - files:
-      - values.yaml
+      - values.yaml=secrets/values.yaml
     name: tailscale-values
-    namespace: default
