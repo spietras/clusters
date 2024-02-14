@@ -1,8 +1,8 @@
 # Configure names transformer
 nameReference:
-  # Replace secret names
   - kind: Secret
     version: v1
     fieldSpecs:
+      # Replace secret names in HelmReleases
       - path: spec/valuesFrom/name
         kind: HelmRelease

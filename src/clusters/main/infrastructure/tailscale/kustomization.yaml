@@ -3,7 +3,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 # Include the following configuration files
 configurations:
-  - configurations/labels.yaml
   - configurations/names.yaml
 # Include the following resources
 resources:
@@ -13,8 +12,10 @@ resources:
 # Set the namespace for all resources
 namespace: tailscale
 # Set labels for all resources
-commonLabels:
-  layer: infrastructure
+labels:
+  - pairs:
+      layer: infrastructure
+    includeTemplates: true
 # Generate secrets
 secretGenerator:
   - files:
