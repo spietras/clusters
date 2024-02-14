@@ -16,11 +16,6 @@ labels:
   - pairs:
       layer: infrastructure
     includeTemplates: true
-    fields:
-      # Set also chart labels in HelmReleases
-      - path: spec/chart/metadata/labels
-        kind: HelmRelease
-        create: true
 # Generate secrets
 secretGenerator:
   - files:
