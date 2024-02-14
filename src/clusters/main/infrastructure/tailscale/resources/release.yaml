@@ -16,4 +16,7 @@ spec:
   valuesFrom:
     - kind: Secret
       name: tailscale-values
+  driftDetection:
+    # Enable drift correction
+    mode: enabled
   interval: 5m

@@ -13,4 +13,7 @@ spec:
         kind: HelmRepository
         name: stefanprodan
       interval: 5m
+  driftDetection:
+    # Enable drift correction
+    mode: enabled
   interval: 5m
