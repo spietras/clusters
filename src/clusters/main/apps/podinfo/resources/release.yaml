@@ -12,7 +12,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: stefanprodan
-      interval: 5m
+      interval: 1m
   postRenderers:
     - kustomize:
         patches:
@@ -25,4 +25,4 @@ spec:
                 name: .
                 labels:
                   layer: apps
-  interval: 5m
+  interval: 1m
