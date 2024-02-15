@@ -25,4 +25,8 @@ spec:
                 name: .
                 labels:
                   layer: infrastructure
+  values:
+    service:
+      # Disable LoadBalancer service
+      enabled: false
   interval: 1m
