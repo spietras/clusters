@@ -18,9 +18,11 @@ spec:
         patches:
           # Add labels to all resources
           - target:
-              kind: all
+              name: .*
             patch: |
-              - op: add
-                path: /metadata/labels/layer
-                value: apps
+              kind: .
+              metadata:
+                name: .
+                labels:
+                  layer: apps
   interval: 5m

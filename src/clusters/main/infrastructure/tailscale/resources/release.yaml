@@ -18,11 +18,13 @@ spec:
         patches:
           # Add labels to all resources
           - target:
-              kind: all
+              name: .*
             patch: |
-              - op: add
-                path: /metadata/labels/layer
-                value: infrastructure
+              kind: .
+              metadata:
+                name: .
+                labels:
+                  layer: infrastructure
   valuesFrom:
     - kind: Secret
       name: tailscale-values
