@@ -27,6 +27,9 @@ spec:
                   layer: infrastructure
   values:
     service:
+      annotations:
+        # Use custom machine name in Tailscale
+        tailscale.com/hostname: traefik
       # Use Tailscale LoadBalancer
       loadBalancerClass: tailscale
   interval: 1m
