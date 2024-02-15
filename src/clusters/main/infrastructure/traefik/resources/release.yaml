@@ -27,6 +27,6 @@ spec:
                   layer: infrastructure
   values:
     service:
-      # Disable LoadBalancer service
-      enabled: false
+      # Use Tailscale LoadBalancer
+      loadBalancerClass: tailscale
   interval: 1m
