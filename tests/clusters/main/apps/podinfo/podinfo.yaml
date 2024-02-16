@@ -10,6 +10,10 @@ spec:
     name: main
     namespace: flux-system
   path: tests/clusters/main/apps/podinfo/kustomize
+  dependsOn:
+    # Deploy Traefik first
+    - name: traefik
+      namespace: traefik
   interval: 1m
   prune: true
   wait: true
