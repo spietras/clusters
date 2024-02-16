@@ -10,6 +10,10 @@ spec:
     name: main
     namespace: flux-system
   path: src/clusters/main/infrastructure/traefik/kustomize
+  dependsOn:
+    # Deploy Tailscale first
+    - name: tailscale
+      namespace: tailscale
   interval: 1m
   prune: true
   wait: true
