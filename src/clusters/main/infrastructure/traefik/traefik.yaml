@@ -2,18 +2,16 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: traefik
-  namespace: traefik
+  namespace: flux-system
 spec:
   # This repository is handled outside of GitOps
   sourceRef:
     kind: GitRepository
     name: main
-    namespace: flux-system
   path: src/clusters/main/infrastructure/traefik/kustomize
   dependsOn:
     # Deploy Tailscale first
     - name: tailscale
-      namespace: tailscale
   interval: 1m
   prune: true
   wait: true

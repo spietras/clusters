@@ -1,0 +1,8 @@
+# Create main Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# Include the following resources
+resources:
+  - apps/podinfo/podinfo.yaml
+  - infrastructure/tailscale/tailscale.yaml
+  - infrastructure/traefik/traefik.yaml
