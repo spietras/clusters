@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - resources/helm/release.yaml
   - resources/helm/repository.yaml
+  - resources/traefik/routes/http.yaml
   - resources/namespace.yaml
 # Set the namespace for all resources
 namespace: podinfo
