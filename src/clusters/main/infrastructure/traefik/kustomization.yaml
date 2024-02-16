@@ -3,9 +3,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 # Include the following resources
 resources:
+  - resources/helm/release.yaml
+  - resources/helm/repository.yaml
   - resources/namespace.yaml
-  - resources/release.yaml
-  - resources/source.yaml
 # Set the namespace for all resources
 namespace: traefik
 # Set labels for all resources
