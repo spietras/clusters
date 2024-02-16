@@ -1,0 +1,15 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: podinfo
+  namespace: podinfo
+spec:
+  # This repository is handled outside of GitOps
+  sourceRef:
+    kind: GitRepository
+    name: main
+    namespace: flux-system
+  path: tests/clusters/main/apps/podinfo/kustomize
+  interval: 1m
+  prune: true
+  wait: true
