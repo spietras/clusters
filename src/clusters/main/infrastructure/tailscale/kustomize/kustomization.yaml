@@ -9,13 +9,6 @@ resources:
   - resources/helm/release.yaml
   - resources/helm/repository.yaml
   - resources/namespace.yaml
-# Set the namespace for all resources
-namespace: tailscale
-# Set labels for all resources
-labels:
-  - pairs:
-      layer: infrastructure
-    includeTemplates: true
 # Generate secrets
 secretGenerator:
   - files:

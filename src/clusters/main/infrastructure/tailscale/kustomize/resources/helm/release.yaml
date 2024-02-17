@@ -12,20 +12,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: tailscale
-      interval: 1m
-  postRenderers:
-    - kustomize:
-        patches:
-          # Add labels to all resources
-          - target:
-              name: .*
-            patch: |
-              kind: .
-              metadata:
-                name: .
-                labels:
-                  layer: infrastructure
+  # This needs to be here for patching to work
+  postRenderers: []
   valuesFrom:
     - kind: Secret
       name: tailscale-values
-  interval: 1m

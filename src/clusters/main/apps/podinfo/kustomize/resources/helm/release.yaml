@@ -12,17 +12,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: stefanprodan
-      interval: 1m
-  postRenderers:
-    - kustomize:
-        patches:
-          # Add labels to all resources
-          - target:
-              name: .*
-            patch: |
-              kind: .
-              metadata:
-                name: .
-                labels:
-                  layer: apps
-  interval: 1m
+  # This needs to be here for patching to work
+  postRenderers: []

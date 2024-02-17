@@ -1,20 +1,12 @@
+# Create tailscale Kustomization
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: tailscale
-  namespace: flux-system
 spec:
-  # This repository is handled outside of GitOps
-  sourceRef:
-    kind: GitRepository
-    name: main
+  # Path inside repository to a directory containing Kustomization files
   path: src/clusters/main/infrastructure/tailscale/kustomize
-  # Configure SOPS decryption
-  decryption:
-    provider: sops
-    # This secret is handled outside of GitOps
-    secretRef:
-      name: sops-keys
-  interval: 1m
-  prune: true
-  wait: true
+  # Set the namespace for all resources
+  targetNamespace: tailscale
+  # This needs to be here for patching to work
+  patches: []

@@ -12,19 +12,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: traefik
-      interval: 1m
-  postRenderers:
-    - kustomize:
-        patches:
-          # Add labels to all resources
-          - target:
-              name: .*
-            patch: |
-              kind: .
-              metadata:
-                name: .
-                labels:
-                  layer: infrastructure
+  # This needs to be here for patching to work
+  postRenderers: []
   values:
     ports:
       # Port for web traffic
@@ -43,4 +32,3 @@ spec:
         tailscale.com/hostname: traefik
       # Use Tailscale LoadBalancer
       loadBalancerClass: tailscale
-  interval: 1m

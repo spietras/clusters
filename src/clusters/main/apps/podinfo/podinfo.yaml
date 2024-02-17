@@ -1,23 +1,15 @@
+# Create podinfo Kustomization
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
   name: podinfo
-  namespace: flux-system
 spec:
-  # This repository is handled outside of GitOps
-  sourceRef:
-    kind: GitRepository
-    name: main
+  # Path inside repository to a directory containing Kustomization files
   path: src/clusters/main/apps/podinfo/kustomize
   dependsOn:
     # Deploy Traefik first
     - name: traefik
-  # Configure SOPS decryption
-  decryption:
-    provider: sops
-    # This secret is handled outside of GitOps
-    secretRef:
-      name: sops-keys
-  interval: 1m
-  prune: true
-  wait: true
+  # Set the namespace for all resources
+  targetNamespace: podinfo
+  # This needs to be here for patching to work
+  patches: []

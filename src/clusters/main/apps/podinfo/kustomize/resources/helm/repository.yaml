@@ -6,4 +6,3 @@ metadata:
 spec:
   type: oci
   url: oci://ghcr.io/stefanprodan/charts
-  interval: 5m
