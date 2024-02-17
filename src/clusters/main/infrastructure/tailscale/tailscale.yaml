@@ -9,6 +9,12 @@ spec:
     kind: GitRepository
     name: main
   path: src/clusters/main/infrastructure/tailscale/kustomize
+  # Configure SOPS decryption
+  decryption:
+    provider: sops
+    # This secret is handled outside of GitOps
+    secretRef:
+      name: sops-keys
   interval: 1m
   prune: true
   wait: true

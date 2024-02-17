@@ -12,6 +12,12 @@ spec:
   dependsOn:
     # Deploy Tailscale first
     - name: tailscale
+  # Configure SOPS decryption
+  decryption:
+    provider: sops
+    # This secret is handled outside of GitOps
+    secretRef:
+      name: sops-keys
   interval: 1m
   prune: true
   wait: true
