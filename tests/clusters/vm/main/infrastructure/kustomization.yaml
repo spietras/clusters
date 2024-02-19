@@ -1,0 +1,45 @@
+# Create infrastructure Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# Include the following resources
+resources:
+  - traefik/traefik.yaml
+# Apply patches for common configurations
+patches:
+  # Set common metadata to add labels to all resources
+  - target:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+      name: .*
+    patch: |
+      kind: .
+      metadata:
+        name: .
+      spec:
+        commonMetadata:
+          labels:
+            layer: infrastructure
+  # Set patch to labels to all resources created by HelmRelease
+  - target:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+    patch: |
+      - op: add
+        path: /spec/patches/-
+        value:
+          target:
+            kind: HelmRelease
+          patch: |
+            - op: add
+              path: /spec/postRenderers/-
+              value:
+                kustomize:
+                  patches:
+                    - target:
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                          labels:
+                            layer: infrastructure

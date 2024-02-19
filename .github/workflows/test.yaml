@@ -83,7 +83,7 @@ jobs:
           --source
           main
           --path
-          'tests/clusters/${{ matrix.cluster }}'
+          'tests/clusters/ci/${{ matrix.cluster }}'
           --wait
       - name: Debug failures
         if: failure()
