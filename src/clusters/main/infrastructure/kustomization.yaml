@@ -4,6 +4,7 @@ kind: Kustomization
 # Include the following resources
 resources:
   - longhorn/longhorn.yaml
+  - metrics/metrics.yaml
   - tailscale/tailscale.yaml
   - traefik/traefik.yaml
 # Apply patches for common configurations
