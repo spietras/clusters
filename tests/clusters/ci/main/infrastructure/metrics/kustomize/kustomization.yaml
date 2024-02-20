@@ -1,0 +1,15 @@
+# Overlay metrics Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - ../../../../../../../src/clusters/main/infrastructure/metrics/kustomize
+patches:
+  # Disable certificate verification as kind doesn't have them set up
+  - target:
+      group: helm.toolkit.fluxcd.io
+      kind: HelmRelease
+      name: metrics
+    patch: |
+      - op: add
+        path: /spec/values/args/-
+        value: --kubelet-insecure-tls
