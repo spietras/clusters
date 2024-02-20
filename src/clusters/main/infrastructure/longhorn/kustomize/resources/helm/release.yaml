@@ -15,6 +15,15 @@ spec:
   # This needs to be here for patching to work
   postRenderers: []
   values:
+    csi:
+      # Use only 1 replica of attacher
+      attacherReplicaCount: 1
+      # Use only 1 replica of provisioner
+      provisionerReplicaCount: 1
+      # Use only 1 replica of resizer
+      resizerReplicaCount: 1
+      # Use only 1 replica of snapshotter
+      snapshotterReplicaCount: 1
     defaultSettings:
       # Store data only on labeled nodes
       createDefaultDiskLabeledNodes: true
