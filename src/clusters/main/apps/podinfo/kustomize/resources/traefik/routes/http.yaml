@@ -9,7 +9,7 @@ spec:
     - web
   routes:
     # Match traffic with the Host header
-    - match: Host(`podinfo.k8s.spietras.dev`)
+    - match: HostRegexp(`podinfo.{domain:.*}`)
       kind: Rule
       services:
         # Route traffic to the podinfo service
