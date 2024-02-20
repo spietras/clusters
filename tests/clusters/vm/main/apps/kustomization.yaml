@@ -43,3 +43,95 @@ patches:
                           name: .
                           labels:
                             layer: apps
+                    - target:
+                        group: apps
+                        kind: Deployment
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                        spec:
+                          template:
+                            metadata:
+                              labels:
+                                layer: apps
+                    - target:
+                        group: apps
+                        kind: ReplicaSet
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                        spec:
+                          template:
+                            metadata:
+                              labels:
+                                layer: apps
+                    - target:
+                        group: apps
+                        kind: StatefulSet
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                        spec:
+                          template:
+                            metadata:
+                              labels:
+                                layer: apps
+                    - target:
+                        group: apps
+                        kind: DaemonSet
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                        spec:
+                          template:
+                            metadata:
+                              labels:
+                                layer: apps
+                    - target:
+                        group: batch
+                        kind: Job
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                        spec:
+                          template:
+                            metadata:
+                              labels:
+                                layer: apps
+                    - target:
+                        group: batch
+                        kind: CronJob
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                        spec:
+                          jobTemplate:
+                            spec:
+                              template:
+                                metadata:
+                                  labels:
+                                    layer: apps
+                    - target:
+                        kind: ReplicationController
+                        name: .*
+                      patch: |
+                        kind: .
+                        metadata:
+                          name: .
+                        spec:
+                          template:
+                            metadata:
+                              labels:
+                                layer: apps

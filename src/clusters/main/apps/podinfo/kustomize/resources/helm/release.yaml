@@ -12,5 +12,15 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: stefanprodan
-  # This needs to be here for patching to work
-  postRenderers: []
+  # This needs to be always present here for patching to work
+  postRenderers:
+    - kustomize:
+        patches:
+          # Needed due to a bug in Kustomize that changes null to "null"
+          - target:
+              group: apps
+              kind: Deployment
+              name: podinfo
+            patch: |
+              - op: remove
+                path: /spec/template/spec/containers/0/resources/limits
