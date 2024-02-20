@@ -43,6 +43,9 @@
         copier = pkgs.copier;
         flux = pkgs.fluxcd;
         sops = pkgs.sops;
+        kubectl = pkgs.kubectl;
+        helm = pkgs.kubernetes-helm;
+        kustomize = pkgs.kustomize;
       in {
         # Override pkgs argument
         _module.args.pkgs = import inputs.nixpkgs {
@@ -74,6 +77,9 @@
               copier
               flux
               sops
+              kubectl
+              helm
+              kustomize
             ];
 
             shellHook = ''
