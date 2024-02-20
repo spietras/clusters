@@ -31,6 +31,9 @@ spec:
       defaultDataLocality: best-effort
       # Use only 1 replica by default
       defaultReplicaCount: 1
+    longhornUI:
+      # Use only 1 replica of Longhorn UI
+      replicas: 1
     # Use longhorn namespace for all resources
     namespaceOverride: longhorn
     persistence:
