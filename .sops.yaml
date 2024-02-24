@@ -1,10 +1,12 @@
+# This are the public keys of the age keypairs used to encrypt files
+# You should have the private keys on your machine
 keys:
-  # This is the public key of the age keypair used to encrypt secrets
-  # You should have the private key on your machine
-  - &key age14uepygtepskwehywergh9fe9j2a3ytqd80y9r2ekfmett6rq3peqjtgxns
+  - &main age14uepygtepskwehywergh9fe9j2a3ytqd80y9r2ekfmett6rq3peqjtgxns
+  - &clusters age1y5lqafxarcnlrduh8k3tycnaq63v2alagmtkf0k9gd59pg263axqtt928v
 creation_rules:
-  # Allow any path in src to be encrypted with the age key
+  # Allow any path in src to be encrypted
   - path_regex: src/.*
     key_groups:
       - age:
-          - *key
+          - *main
+          - *clusters
