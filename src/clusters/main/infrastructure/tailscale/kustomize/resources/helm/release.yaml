@@ -17,4 +17,4 @@ spec:
   valuesFrom:
     - kind: Secret
       name: helm-values
-      valuesKey: values
+      valuesKey: values.yaml
