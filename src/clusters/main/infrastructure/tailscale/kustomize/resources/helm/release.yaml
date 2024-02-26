@@ -16,4 +16,5 @@ spec:
   postRenderers: []
   valuesFrom:
     - kind: Secret
-      name: tailscale-values
+      name: helm-values
+      valuesKey: values

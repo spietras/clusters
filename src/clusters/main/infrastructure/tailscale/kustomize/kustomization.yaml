@@ -12,5 +12,5 @@ resources:
 # Generate secrets
 secretGenerator:
   - files:
-      - values.yaml=secrets/values.yaml
-    name: tailscale-values
+      - values=secrets/values.yaml
+    name: helm-values
