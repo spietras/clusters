@@ -12,5 +12,7 @@ resources:
 # Generate secrets
 secretGenerator:
   - files:
-      - values=secrets/values.yaml
+      # It's important to include extension in the key
+      # SOPS will use it to determine the format of the content
+      - values.yaml=secrets/values.yaml
     name: helm-values
