@@ -6,7 +6,7 @@ resources:
 patches:
   # Remove Tailscale annotations from Traefik service
   - target:
-      version: helm.toolkit.fluxcd.io/v2beta1
+      group: helm.toolkit.fluxcd.io
       kind: HelmRelease
       name: traefik
     patch: |
@@ -14,7 +14,7 @@ patches:
         path: /spec/values/service/annotations/tailscale.com~1hostname
   # Remove loadBalancerClass from Traefik service
   - target:
-      version: helm.toolkit.fluxcd.io/v2beta1
+      group: helm.toolkit.fluxcd.io
       kind: HelmRelease
       name: traefik
     patch: |
