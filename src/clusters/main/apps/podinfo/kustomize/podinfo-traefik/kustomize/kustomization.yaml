@@ -4,3 +4,4 @@ kind: Kustomization
 # Include the following resources
 resources:
   - resources/routes/http.yaml
+  - resources/routes/https.yaml

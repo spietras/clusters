@@ -1,0 +1,16 @@
+# Create wildcard certificate
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard
+spec:
+  # Include the following DNS names in the Subject Alt Name field
+  dnsNames:
+    - "*.k8s.spietras.dev"
+  # Use Let's Encrypt to issue the certificate
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  # Store the certificate in the following secret
+  # This secret will be created automatically by cert-manager
+  secretName: certificates-wildcard
