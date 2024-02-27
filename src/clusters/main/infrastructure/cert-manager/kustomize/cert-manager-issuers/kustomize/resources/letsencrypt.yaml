@@ -13,7 +13,7 @@ spec:
       # This secret will be created automatically by cert-manager
       name: issuers-letsencrypt-acme-account-key
     # Use Let's Encrypt ACME server
-    server: https://acme-staging-v02.api.letsencrypt.org/directory
+    server: https://acme-v02.api.letsencrypt.org/directory
     # Solvers for ACME challenges
     solvers:
       # Use DNS01 challenge
