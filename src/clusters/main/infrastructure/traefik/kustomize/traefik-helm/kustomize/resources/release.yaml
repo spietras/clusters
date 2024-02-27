@@ -1,0 +1,34 @@
+# Create traefik Helm release
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: traefik
+spec:
+  chart:
+    spec:
+      # Use this chart from the repository
+      chart: traefik
+      # Use this Helm repository
+      sourceRef:
+        kind: HelmRepository
+        name: traefik
+  # This key always needs to be here for patching to work
+  postRenderers: []
+  values:
+    ports:
+      # Port for web traffic
+      web:
+        # Expose it outside the cluster
+        expose: true
+        # Expose it on this port
+        exposedPort: 80
+        # Web traffic uses TCP
+        protocol: TCP
+        # Port to use inside the cluster
+        port: 8000
+    service:
+      annotations:
+        # Use custom machine name in Tailscale
+        tailscale.com/hostname: traefik
+      # Use Tailscale LoadBalancer
+      loadBalancerClass: tailscale

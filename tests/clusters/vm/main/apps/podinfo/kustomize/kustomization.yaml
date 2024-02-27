@@ -1,5 +1,8 @@
-# Overlay podinfo Kustomization
+# Create podinfo Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+# Include the following resources
 resources:
-  - ../../../../../../../src/clusters/main/apps/podinfo/kustomize
+  - podinfo-helm/podinfo-helm.yaml
+  - podinfo-namespace/podinfo-namespace.yaml
+  - podinfo-traefik/podinfo-traefik.yaml

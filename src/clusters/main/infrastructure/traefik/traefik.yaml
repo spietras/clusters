@@ -9,7 +9,17 @@ spec:
   dependsOn:
     # Deploy Tailscale first
     - name: tailscale
-  # Set the namespace for all resources
-  targetNamespace: traefik
-  # This needs to be here for patching to work
-  patches: []
+  # Apply patches for common configurations
+  # This key always needs to be here for patching to work
+  patches:
+    # Set target namespace
+    - target:
+        group: kustomize.toolkit.fluxcd.io
+        kind: Kustomization
+        name: .*
+      patch: |
+        kind: .
+        metadata:
+          name: .
+        spec:
+          targetNamespace: traefik
