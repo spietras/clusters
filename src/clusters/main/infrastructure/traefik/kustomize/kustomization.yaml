@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - traefik-helm/traefik-helm.yaml
   - traefik-namespace/traefik-namespace.yaml
+  - traefik-tls/traefik-tls.yaml
