@@ -26,6 +26,19 @@ spec:
         protocol: TCP
         # Port to use inside the cluster
         port: 8000
+      # Port for secure web traffic
+      websecure:
+        # Expose it outside the cluster
+        expose: true
+        # Expose it on this port
+        exposedPort: 443
+        # Secure web traffic uses TCP
+        protocol: TCP
+        # Port to use inside the cluster
+        port: 8443
+        # Enable TLS
+        tls:
+          enabled: true
     service:
       annotations:
         # Use custom machine name in Tailscale
