@@ -10,4 +10,13 @@ spec:
     # Deploy namespace first
     - name: emitimes-namespace
   # This key always needs to be here for patching to work
-  patches: []
+  patches:
+    # Change volume size from HelmRelease values
+    - target:
+        group: helm.toolkit.fluxcd.io
+        kind: HelmRelease
+        name: emitimes
+      patch: |
+        - op: replace
+          path: /spec/values/volume/size
+          value: 64Mi
