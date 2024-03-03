@@ -20,3 +20,5 @@ spec:
       access: ReadWriteOnce
       # Use Longhorn storage class
       class: longhorn
+      # Use 1 Gigabyte volume size
+      size: 1Gi
