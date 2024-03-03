@@ -12,7 +12,7 @@ spec:
     - match: HostRegexp(`streamcast.{domain:.*}`)
       kind: Rule
       services:
-        # Route traffic to the podinfo service
+        # Route traffic to the streamcast service
         - name: streamcast
           # This is the name of the port in the service
           port: http
