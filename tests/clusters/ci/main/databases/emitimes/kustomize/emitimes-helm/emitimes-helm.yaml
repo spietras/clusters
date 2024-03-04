@@ -10,12 +10,4 @@ spec:
     # Deploy namespace first
     - name: emitimes-namespace
   # This key always needs to be here for patching to work
-  patches:
-    # Remove volume from HelmRelease values
-    - target:
-        group: helm.toolkit.fluxcd.io
-        kind: HelmRelease
-        name: emitimes
-      patch: |
-        - op: remove
-          path: /spec/values/volume
+  patches: []

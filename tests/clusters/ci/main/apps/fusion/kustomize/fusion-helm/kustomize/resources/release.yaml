@@ -14,7 +14,3 @@ spec:
         name: radio-aktywne
   # This key always needs to be here for patching to work
   postRenderers: []
-  valuesFrom:
-    - kind: Secret
-      name: fusion-helm-secrets-values
-      valuesKey: values.yaml
