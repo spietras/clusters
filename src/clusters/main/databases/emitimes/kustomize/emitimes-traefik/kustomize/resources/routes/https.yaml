@@ -10,7 +10,6 @@ spec:
   routes:
     # Match traffic with the Host header
     - match: HostRegexp(`emitimes.{domain:.*}`)
-      kind: Rule
       services:
         # Route traffic to the emitimes service
         - name: emitimes

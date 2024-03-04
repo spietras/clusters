@@ -10,7 +10,6 @@ spec:
   routes:
     # Match traffic with the Host header
     - match: HostRegexp(`streamcast.{domain:.*}`)
-      kind: Rule
       services:
         # Route traffic to the streamcast service
         - name: streamcast
