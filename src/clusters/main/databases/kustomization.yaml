@@ -1,11 +1,9 @@
-# Create apps Kustomization
+# Create databases Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 # Include the following resources
 resources:
-  - fusion/fusion.yaml
-  - podinfo/podinfo.yaml
-  - streamcast/streamcast.yaml
+  - emitimes/emitimes.yaml
 # Apply patches for common configurations
 patches:
   # Set patch to add labels to all resources in nested Kustomizations
@@ -27,7 +25,7 @@ patches:
             spec:
               commonMetadata:
                 labels:
-                  layer: apps
+                  layer: databases
   # Set patch to add labels to all resources
   # created by HelmRelease in nested Kustomizations
   - target:
@@ -59,7 +57,7 @@ patches:
                               metadata:
                                 name: .
                                 labels:
-                                  layer: apps
+                                  layer: databases
                           - target:
                               group: apps
                               kind: Deployment
@@ -72,7 +70,7 @@ patches:
                                 template:
                                   metadata:
                                     labels:
-                                      layer: apps
+                                      layer: databases
                           - target:
                               group: apps
                               kind: ReplicaSet
@@ -85,7 +83,7 @@ patches:
                                 template:
                                   metadata:
                                     labels:
-                                      layer: apps
+                                      layer: databases
                           - target:
                               group: apps
                               kind: StatefulSet
@@ -98,7 +96,7 @@ patches:
                                 template:
                                   metadata:
                                     labels:
-                                      layer: apps
+                                      layer: databases
                           - target:
                               group: apps
                               kind: DaemonSet
@@ -111,7 +109,7 @@ patches:
                                 template:
                                   metadata:
                                     labels:
-                                      layer: apps
+                                      layer: databases
                           - target:
                               group: batch
                               kind: Job
@@ -124,7 +122,7 @@ patches:
                                 template:
                                   metadata:
                                     labels:
-                                      layer: apps
+                                      layer: databases
                           - target:
                               group: batch
                               kind: CronJob
@@ -139,7 +137,7 @@ patches:
                                     template:
                                       metadata:
                                         labels:
-                                          layer: apps
+                                          layer: databases
                           - target:
                               kind: ReplicationController
                               name: .*
@@ -151,4 +149,4 @@ patches:
                                 template:
                                   metadata:
                                     labels:
-                                      layer: apps
+                                      layer: databases
