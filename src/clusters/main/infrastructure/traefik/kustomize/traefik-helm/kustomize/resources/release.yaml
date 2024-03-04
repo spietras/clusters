@@ -45,10 +45,30 @@ spec:
         expose: true
         # Expose it on this port
         exposedPort: 9999
-        # Fusion SRT traffic uses UDP
+        # fusion SRT traffic uses UDP
         protocol: UDP
         # Port to use inside the cluster
         port: 9999
+      # Port for emishows-db SQL traffic
+      emishows-db-sql:
+        # Expose it outside the cluster
+        expose: true
+        # Expose it on this port
+        exposedPort: 9998
+        # emishows-db SQL traffic uses TCP
+        protocol: TCP
+        # Port to use inside the cluster
+        port: 9998
+      # Port for emishows-db RPC traffic
+      emishows-db-rpc:
+        # Expose it outside the cluster
+        expose: true
+        # Expose it on this port
+        exposedPort: 9997
+        # emishows-db RPC traffic uses TCP
+        protocol: TCP
+        # Port to use inside the cluster
+        port: 9997
     service:
       annotations:
         # Use custom machine name in Tailscale

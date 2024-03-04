@@ -1,0 +1,18 @@
+# Create HTTPS ingress route for emishows-db
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: emishows-db-https
+spec:
+  entryPoints:
+    # Use entrypoint for secure web traffic
+    - websecure
+  routes:
+    # Match traffic with the Host header
+    - match: HostRegexp(`emishows-db.{domain:.*}`)
+      kind: Rule
+      services:
+        # Route traffic to the emishows-db service
+        - name: emishows-db
+          # This is the name of the port in the service
+          port: http
