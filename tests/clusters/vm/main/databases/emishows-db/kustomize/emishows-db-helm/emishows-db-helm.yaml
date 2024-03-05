@@ -19,4 +19,4 @@ spec:
       patch: |
         - op: replace
           path: /spec/values/volume/size
-          value: 64Mi
+          value: 512Mi
