@@ -15,22 +15,25 @@ spec:
   # This key always needs to be here for patching to work
   postRenderers: []
   values:
+    # Additional arguments for the traefik binary
     additionalArguments:
       # Allow backends to use self-signed certificates
       - --serversTransport.insecureSkipVerify=true
+    # Disable the dashboard
+    ingressRoute:
+      dashboard:
+        enabled: false
+    # Disable Prometheus metrics
+    metrics:
+      prometheus: false
+    # Entrypoints
     ports:
-      # Port for web traffic
-      web:
-        # Expose it outside the cluster
-        expose: true
-        # Expose it on this port
-        exposedPort: 80
-        # Web traffic uses TCP
-        protocol: TCP
-        # Port to use inside the cluster
-        port: 8000
-      # Port for secure web traffic
-      websecure:
+      # Disable default ports
+      web: false
+      websecure: false
+      metrics: false
+      # Port for HTTP traffic
+      http:
         # Expose it outside the cluster
         expose: true
         # Expose it on this port
@@ -39,6 +42,19 @@ spec:
         protocol: TCP
         # Port to use inside the cluster
         port: 8443
+        # Enable TLS
+        tls:
+          enabled: true
+      # Port for TCP traffic
+      tcp:
+        # Expose it outside the cluster
+        expose: true
+        # Expose it on this port
+        exposedPort: 10000
+        # TCP traffic uses TCP
+        protocol: TCP
+        # Port to use inside the cluster
+        port: 10000
         # Enable TLS
         tls:
           enabled: true
@@ -52,26 +68,6 @@ spec:
         protocol: UDP
         # Port to use inside the cluster
         port: 9999
-      # Port for emishows-db SQL traffic
-      emishows-db-sql:
-        # Expose it outside the cluster
-        expose: true
-        # Expose it on this port
-        exposedPort: 9998
-        # emishows-db SQL traffic uses TCP
-        protocol: TCP
-        # Port to use inside the cluster
-        port: 9998
-      # Port for emishows-db RPC traffic
-      emishows-db-rpc:
-        # Expose it outside the cluster
-        expose: true
-        # Expose it on this port
-        exposedPort: 9997
-        # emishows-db RPC traffic uses TCP
-        protocol: TCP
-        # Port to use inside the cluster
-        port: 9997
     service:
       annotations:
         # Use custom machine name in Tailscale
