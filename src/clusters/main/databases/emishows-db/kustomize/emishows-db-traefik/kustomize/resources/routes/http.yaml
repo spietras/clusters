@@ -16,3 +16,5 @@ spec:
         - name: emishows-db
           # This is the name of the port in the service
           port: http
+          # Use HTTPS when communicating with the service
+          scheme: https
