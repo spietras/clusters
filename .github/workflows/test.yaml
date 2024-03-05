@@ -86,7 +86,7 @@ jobs:
           'tests/clusters/ci/${{ matrix.cluster }}'
           --wait
           --timeout
-          15m
+          10m
       - name: Debug failures
         if: failure()
         run: |
