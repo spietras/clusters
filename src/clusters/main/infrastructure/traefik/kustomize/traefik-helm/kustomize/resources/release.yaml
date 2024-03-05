@@ -15,6 +15,9 @@ spec:
   # This key always needs to be here for patching to work
   postRenderers: []
   values:
+    additionalArguments:
+      # Allow backends to use self-signed certificates
+      - --serversTransport.insecureSkipVerify=true
     ports:
       # Port for web traffic
       web:
