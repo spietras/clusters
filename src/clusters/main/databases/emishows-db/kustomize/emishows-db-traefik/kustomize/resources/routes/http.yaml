@@ -9,7 +9,7 @@ spec:
     - http
   routes:
     # Match traffic with the Host header
-    - match: HostRegexp(`emishows-db.{domain:.*}`)
+    - match: HostRegexp(`emishows-db\..*`)
       kind: Rule
       services:
         # Route traffic to the emishows-db service
