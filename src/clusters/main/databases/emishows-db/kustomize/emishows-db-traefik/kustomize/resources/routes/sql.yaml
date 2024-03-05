@@ -9,7 +9,7 @@ spec:
     - tcp
   routes:
     # Match traffic with SNI
-    - match: HostSNIRegexp(`emishows-db.{domain:.*}`)
+    - match: HostSNIRegexp(`emishows-db\..*`)
       services:
         # Route traffic to the emishows-db service
         - name: emishows-db
