@@ -5,11 +5,11 @@ metadata:
   name: emishows-db-sql
 spec:
   entryPoints:
-    # Use entrypoint for emishows-db SQL traffic
-    - emishows-db-sql
+    # Use entrypoint for TCP traffic
+    - tcp
   routes:
-    # Match all traffic
-    - match: HostSNI(`*`)
+    # Match traffic with SNI
+    - match: HostSNIRegexp(`emishows-db.{domain:.*}`)
       services:
         # Route traffic to the emishows-db service
         - name: emishows-db
