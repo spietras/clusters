@@ -6,6 +6,7 @@ resources:
   - emirecorder/emirecorder.yaml
   - emischeduler/emischeduler.yaml
   - emishows/emishows.yaml
+  - emistream/emistream.yaml
   - fusion/fusion.yaml
   - podinfo/podinfo.yaml
   - streamcast/streamcast.yaml
