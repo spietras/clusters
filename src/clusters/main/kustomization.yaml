@@ -199,6 +199,31 @@ patches:
                     name: .
                   spec:
                     interval: 5m
+  # Set patch to add drift detection to HelmReleases in nested Kustomizations
+  - target:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+    patch: |
+      - op: add
+        path: /spec/patches/-
+        value:
+          target:
+            group: kustomize.toolkit.fluxcd.io
+            kind: Kustomization
+          patch: |
+            - op: add
+              path: /spec/patches/-
+              value:
+                target:
+                  kind: HelmRelease
+                  name: .*
+                patch: |
+                  kind: .
+                  metadata:
+                    name: .
+                  spec:
+                    driftDetection:
+                      mode: enabled
   # Set patch to add interval to HelmReleases in nested Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
