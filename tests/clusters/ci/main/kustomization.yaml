@@ -255,6 +255,35 @@ patches:
                     name: .
                   spec:
                     interval: 1m
+  # Set patch to add remediations to HelmReleases in nested Kustomizations
+  - target:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+    patch: |
+      - op: add
+        path: /spec/patches/-
+        value:
+          target:
+            group: kustomize.toolkit.fluxcd.io
+            kind: Kustomization
+          patch: |
+            - op: add
+              path: /spec/patches/-
+              value:
+                target:
+                  kind: HelmRelease
+                  name: .*
+                patch: |
+                  kind: .
+                  metadata:
+                    name: .
+                  spec:
+                    install:
+                      remediation:
+                        retries: 3
+                    upgrade:
+                      remediation:
+                        retries: 3
   # Set patch to add interval to charts in HelmReleases in nested Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
