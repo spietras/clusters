@@ -39,7 +39,7 @@ patches:
       metadata:
         name: .
       spec:
-        interval: 1m
+        interval: 5m
   # Make all Kustomizations prune resources
   - target:
       group: kustomize.toolkit.fluxcd.io
@@ -137,7 +137,7 @@ patches:
             metadata:
               name: .
             spec:
-              interval: 1m
+              interval: 5m
   # Set patch to make all nested Kustomizations prune resources
   - target:
       group: kustomize.toolkit.fluxcd.io
@@ -246,7 +246,7 @@ patches:
                   metadata:
                     name: .
                   spec:
-                    interval: 1m
+                    interval: 5m
   # Set patch to add interval to charts in HelmReleases in nested Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
@@ -272,4 +272,4 @@ patches:
                   spec:
                     chart:
                       spec:
-                        interval: 1m
+                        interval: 5m
