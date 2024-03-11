@@ -41,6 +41,17 @@ patches:
         name: .
       spec:
         interval: 1m
+  # Set retry interval for all Kustomizations
+  - target:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+      name: .*
+    patch: |
+      kind: .
+      metadata:
+        name: .
+      spec:
+        retryInterval: 1m
   # Make all Kustomizations prune resources
   - target:
       group: kustomize.toolkit.fluxcd.io
@@ -117,6 +128,24 @@ patches:
               name: .
             spec:
               interval: 1m
+  # Set patch to set retry interval for all nested Kustomizations
+  - target:
+      group: kustomize.toolkit.fluxcd.io
+      kind: Kustomization
+    patch: |
+      - op: add
+        path: /spec/patches/-
+        value:
+          target:
+            group: kustomize.toolkit.fluxcd.io
+            kind: Kustomization
+            name: .*
+          patch: |
+            kind: .
+            metadata:
+              name: .
+            spec:
+              retryInterval: 1m
   # Set patch to make all nested Kustomizations prune resources
   - target:
       group: kustomize.toolkit.fluxcd.io
