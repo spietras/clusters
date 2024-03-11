@@ -8,7 +8,7 @@ resources:
   - infrastructure
 # Apply patches for common configurations
 patches:
-  # Set namespace for all Kustomizations
+  # Set namespace for Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
       kind: Kustomization
@@ -16,8 +16,7 @@ patches:
       - op: add
         path: /metadata/namespace
         value: flux-system
-  # Set source for Kustomizations
-  # The repository is handled outside of GitOps
+  # Set common configuration for Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
       kind: Kustomization
@@ -30,51 +29,11 @@ patches:
         sourceRef:
           kind: GitRepository
           name: main
-  # Set interval for all Kustomizations
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-      name: .*
-    patch: |
-      kind: .
-      metadata:
-        name: .
-      spec:
         interval: 1m
-  # Set retry interval for all Kustomizations
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-      name: .*
-    patch: |
-      kind: .
-      metadata:
-        name: .
-      spec:
         retryInterval: 1m
-  # Make all Kustomizations prune resources
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-      name: .*
-    patch: |
-      kind: .
-      metadata:
-        name: .
-      spec:
         prune: true
-  # Make all Kustomizations wait for resources
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-      name: .*
-    patch: |
-      kind: .
-      metadata:
-        name: .
-      spec:
         wait: true
-  # Set patch to set namespace for all nested Kustomizations
+  # Set namespace for nested Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
       kind: Kustomization
@@ -89,8 +48,7 @@ patches:
             - op: add
               path: /metadata/namespace
               value: flux-system
-  # Set patch to set source for nested Kustomizations
-  # The repository is handled outside of GitOps
+  # Set common configuration for nested Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
       kind: Kustomization
@@ -110,79 +68,11 @@ patches:
               sourceRef:
                 kind: GitRepository
                 name: main
-  # Set patch to set interval for all nested Kustomizations
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-    patch: |
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            group: kustomize.toolkit.fluxcd.io
-            kind: Kustomization
-            name: .*
-          patch: |
-            kind: .
-            metadata:
-              name: .
-            spec:
               interval: 1m
-  # Set patch to set retry interval for all nested Kustomizations
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-    patch: |
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            group: kustomize.toolkit.fluxcd.io
-            kind: Kustomization
-            name: .*
-          patch: |
-            kind: .
-            metadata:
-              name: .
-            spec:
               retryInterval: 1m
-  # Set patch to make all nested Kustomizations prune resources
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-    patch: |
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            group: kustomize.toolkit.fluxcd.io
-            kind: Kustomization
-            name: .*
-          patch: |
-            kind: .
-            metadata:
-              name: .
-            spec:
               prune: true
-  # Set patch to make all nested Kustomizations wait for resources
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-    patch: |
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            group: kustomize.toolkit.fluxcd.io
-            kind: Kustomization
-            name: .*
-          patch: |
-            kind: .
-            metadata:
-              name: .
-            spec:
               wait: true
-  # Set patch to add interval to HelmRepositories in nested Kustomizations
+  # Set common configuration for HelmRepositories in nested Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
       kind: Kustomization
@@ -206,85 +96,7 @@ patches:
                     name: .
                   spec:
                     interval: 1m
-  # Set patch to add drift detection to HelmReleases in nested Kustomizations
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-    patch: |
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            group: kustomize.toolkit.fluxcd.io
-            kind: Kustomization
-          patch: |
-            - op: add
-              path: /spec/patches/-
-              value:
-                target:
-                  kind: HelmRelease
-                  name: .*
-                patch: |
-                  kind: .
-                  metadata:
-                    name: .
-                  spec:
-                    driftDetection:
-                      mode: enabled
-  # Set patch to add interval to HelmReleases in nested Kustomizations
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-    patch: |
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            group: kustomize.toolkit.fluxcd.io
-            kind: Kustomization
-          patch: |
-            - op: add
-              path: /spec/patches/-
-              value:
-                target:
-                  kind: HelmRelease
-                  name: .*
-                patch: |
-                  kind: .
-                  metadata:
-                    name: .
-                  spec:
-                    interval: 1m
-  # Set patch to add remediations to HelmReleases in nested Kustomizations
-  - target:
-      group: kustomize.toolkit.fluxcd.io
-      kind: Kustomization
-    patch: |
-      - op: add
-        path: /spec/patches/-
-        value:
-          target:
-            group: kustomize.toolkit.fluxcd.io
-            kind: Kustomization
-          patch: |
-            - op: add
-              path: /spec/patches/-
-              value:
-                target:
-                  kind: HelmRelease
-                  name: .*
-                patch: |
-                  kind: .
-                  metadata:
-                    name: .
-                  spec:
-                    install:
-                      remediation:
-                        retries: 3
-                    upgrade:
-                      remediation:
-                        retries: 3
-  # Set patch to add interval to charts in HelmReleases in nested Kustomizations
+  # Set common configuration for HelmReleases in nested Kustomizations
   - target:
       group: kustomize.toolkit.fluxcd.io
       kind: Kustomization
@@ -310,3 +122,12 @@ patches:
                     chart:
                       spec:
                         interval: 1m
+                    driftDetection:
+                      mode: enabled
+                    interval: 1m
+                    install:
+                      remediation:
+                        retries: 3
+                    upgrade:
+                      remediation:
+                        retries: 3
