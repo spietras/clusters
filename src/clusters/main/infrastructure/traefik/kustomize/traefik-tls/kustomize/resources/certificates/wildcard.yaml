@@ -8,6 +8,7 @@ spec:
   dnsNames:
     - "*.k8s.spietras.dev"
     - "*.emiarchive.k8s.spietras.dev"
+    - "*.emipass.k8s.spietras.dev"
   # Use Let's Encrypt to issue the certificate
   issuerRef:
     name: letsencrypt
