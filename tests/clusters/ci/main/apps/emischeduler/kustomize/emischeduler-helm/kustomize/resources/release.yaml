@@ -8,6 +8,8 @@ spec:
     spec:
       # Use this chart from the repository
       chart: emischeduler
+      # Pin version to major
+      version: "0.x"
       # Use this Helm repository
       sourceRef:
         kind: HelmRepository

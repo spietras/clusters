@@ -8,6 +8,8 @@ spec:
     spec:
       # Use this chart from the repository
       chart: traefik
+      # Pin version to major
+      version: "26.x"
       # Use this Helm repository
       sourceRef:
         kind: HelmRepository

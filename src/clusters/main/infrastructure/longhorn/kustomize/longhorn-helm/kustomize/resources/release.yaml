@@ -8,6 +8,8 @@ spec:
     spec:
       # Use this chart from the repository
       chart: longhorn
+      # Pin version to major
+      version: "1.x"
       # Use this Helm repository
       sourceRef:
         kind: HelmRepository

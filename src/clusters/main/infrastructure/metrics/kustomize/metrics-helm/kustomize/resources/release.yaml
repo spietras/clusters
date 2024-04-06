@@ -8,6 +8,8 @@ spec:
     spec:
       # Use this chart from the repository
       chart: metrics-server
+      # Pin version to major
+      version: "3.x"
       # Use this Helm repository
       sourceRef:
         kind: HelmRepository
