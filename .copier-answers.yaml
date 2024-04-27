@@ -1,11 +1,10 @@
 # Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
-_commit: 0.6.0
-_src_path: gh:quickplates/generic
+_commit: 0.1.0
+_src_path: gh:quickplates/flux
 accountname: spietras
 description: Flux manifests for my k8s clusters ☸️
 docs: true
 docsurl: https://spietras.github.io/clusters
 projectname: clusters
-releases: false
 reponame: clusters
 repourl: https://github.com/spietras/clusters
