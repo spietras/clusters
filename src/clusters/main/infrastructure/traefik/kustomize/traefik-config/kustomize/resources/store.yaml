@@ -1,4 +1,4 @@
-# Create default TLSStore
+# Create default TLS store
 apiVersion: traefik.io/v1alpha1
 kind: TLSStore
 metadata:
@@ -6,5 +6,4 @@ metadata:
 spec:
   # Use the default certificate for all routes
   defaultCertificate:
-    # Use the wildcard certificate
-    secretName: certificates-wildcard
+    secretName: certificate

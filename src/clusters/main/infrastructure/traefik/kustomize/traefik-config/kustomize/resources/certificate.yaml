@@ -1,8 +1,8 @@
-# Create wildcard certificate
+# Create certificate
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: wildcard
+  name: certificate
 spec:
   # Include the following DNS names in the Subject Alt Name field
   dnsNames:
@@ -15,4 +15,4 @@ spec:
     kind: ClusterIssuer
   # Store the certificate in the following secret
   # This secret will be created automatically by cert-manager
-  secretName: certificates-wildcard
+  secretName: certificate
