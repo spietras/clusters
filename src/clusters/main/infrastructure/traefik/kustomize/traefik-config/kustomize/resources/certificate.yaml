@@ -7,8 +7,8 @@ spec:
   # Include the following DNS names in the Subject Alt Name field
   dnsNames:
     - "*.k8s.spietras.dev"
-    - "*.datarecords.k8s.spietras.dev"
     - "*.emipass.k8s.spietras.dev"
+    - "*.mediarecords.k8s.spietras.dev"
     - "*.mediatunes.k8s.spietras.dev"
   # Use Let's Encrypt to issue the certificate
   issuerRef:
