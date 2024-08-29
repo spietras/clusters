@@ -8,6 +8,7 @@ spec:
   dnsNames:
     - "*.k8s.spietras.dev"
     - "*.emipass.k8s.spietras.dev"
+    - "*.medialounge.k8s.spietras.dev"
     - "*.mediarecords.k8s.spietras.dev"
     - "*.mediatunes.k8s.spietras.dev"
   # Use Let's Encrypt to issue the certificate
