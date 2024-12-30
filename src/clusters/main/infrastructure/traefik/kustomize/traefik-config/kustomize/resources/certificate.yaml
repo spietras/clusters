@@ -11,6 +11,7 @@ spec:
     - "*.emerald.k8s.spietras.dev"
     - "*.loris.k8s.spietras.dev"
     - "*.minium.k8s.spietras.dev"
+    - "*.scorpion.k8s.spietras.dev"
   # Use Let's Encrypt to issue the certificate
   issuerRef:
     name: letsencrypt
