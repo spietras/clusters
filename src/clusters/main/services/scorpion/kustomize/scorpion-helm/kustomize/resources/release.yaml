@@ -27,6 +27,21 @@ spec:
           scheme: https
           host: crocus.k8s.spietras.dev
           port: null
+      clients:
+        aster:
+          url: https://aster.k8s.spietras.dev
+        daisy:
+          url: https://daisy.k8s.spietras.dev
+        jasmine:
+          url: https://jasmine.k8s.spietras.dev
+        lotus:
+          url: https://lotus.k8s.spietras.dev
+        magnolia:
+          url: https://magnolia.k8s.spietras.dev
+        poppy:
+          url: https://poppy.k8s.spietras.dev
+        tulip:
+          url: https://tulip.k8s.spietras.dev
       debug: false
   valuesFrom:
     - kind: Secret
