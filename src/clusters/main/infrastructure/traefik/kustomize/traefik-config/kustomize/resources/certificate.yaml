@@ -9,6 +9,7 @@ spec:
     - "*.k8s.spietras.dev"
     - "*.amber.k8s.spietras.dev"
     - "*.emerald.k8s.spietras.dev"
+    - "*.falcon.k8s.spietras.dev"
     - "*.loris.k8s.spietras.dev"
     - "*.minium.k8s.spietras.dev"
     - "*.scorpion.k8s.spietras.dev"
