@@ -21,6 +21,8 @@ spec:
       urls:
         public: https://falcon.k8s.spietras.dev
         admin: https://admin.falcon.k8s.spietras.dev
+      cookies:
+        domain: spietras.dev
       orchid:
         public:
           scheme: https
