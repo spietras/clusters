@@ -4,7 +4,6 @@ kind: Kustomization
 # Include the following resources
 resources:
   - cert-manager/cert-manager.yaml
-  - cnpg/cnpg.yaml
   - longhorn/longhorn.yaml
   - metrics/metrics.yaml
   - tailscale/tailscale.yaml
