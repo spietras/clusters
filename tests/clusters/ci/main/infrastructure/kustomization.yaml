@@ -4,6 +4,7 @@ kind: Kustomization
 # Include the following resources
 resources:
   - cert-manager/cert-manager.yaml
+  - cnpg/cnpg.yaml
   - metrics/metrics.yaml
   - traefik/traefik.yaml
 # Apply patches for common configurations

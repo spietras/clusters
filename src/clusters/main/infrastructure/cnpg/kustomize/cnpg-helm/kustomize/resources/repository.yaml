@@ -1,0 +1,8 @@
+# Create cnpg Helm repository
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: cnpg
+spec:
+  type: default
+  url: https://cloudnative-pg.github.io/charts
