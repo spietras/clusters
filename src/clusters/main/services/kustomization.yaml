@@ -4,15 +4,15 @@ kind: Kustomization
 # Include the following resources
 resources:
   - beaver/beaver.yaml
-  # - dingo/dingo.yaml
+  - dingo/dingo.yaml
   - falcon/falcon.yaml
-  # - gecko/gecko.yaml
-  # - loris/loris.yaml
-  # - mantis/mantis.yaml
-  # - numbat/numbat.yaml
-  # - octopus/octopus.yaml
+  - gecko/gecko.yaml
+  - loris/loris.yaml
+  - mantis/mantis.yaml
+  - numbat/numbat.yaml
+  - octopus/octopus.yaml
   - pelican/pelican.yaml
-  # - quokka/quokka.yaml
+  - quokka/quokka.yaml
   - scorpion/scorpion.yaml
 # Apply patches for common configurations
 patches:
