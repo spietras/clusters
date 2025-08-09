@@ -1,0 +1,8 @@
+# Create kubeshark Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# Include the following resources
+resources:
+  - kubeshark-helm/kubeshark-helm.yaml
+  - kubeshark-namespace/kubeshark-namespace.yaml
+  - kubeshark-traefik/kubeshark-traefik.yaml
