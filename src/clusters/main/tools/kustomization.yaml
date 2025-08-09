@@ -4,7 +4,6 @@ kind: Kustomization
 # Include the following resources
 resources:
   - headlamp/headlamp.yaml
-  - kubeshark/kubeshark.yaml
 # Apply patches for common configurations
 patches:
   # Set patch to add labels to all resources in nested Kustomizations
