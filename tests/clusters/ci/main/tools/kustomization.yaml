@@ -5,9 +5,10 @@ kind: Kustomization
 # Some resources are commented out to avoid creating too many resources in CI
 # Uncomment the ones you need to test at a time
 # Or uncomment only the following line to not include any resources
-# resources: []
-resources:
-  - headlamp/headlamp.yaml
+resources: []
+# resources:
+#   - headlamp/headlamp.yaml
+#   - kubeshark/kubeshark.yaml
 # Apply patches for common configurations
 patches:
   # Set patch to add labels to all resources in nested Kustomizations
