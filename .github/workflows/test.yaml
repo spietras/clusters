@@ -34,7 +34,9 @@ jobs:
     timeout-minutes: 60
     strategy:
       matrix:
-        cluster: [main]
+        cluster:
+          - dummy
+          - main
     permissions:
       # Needed to checkout code
       contents: read
