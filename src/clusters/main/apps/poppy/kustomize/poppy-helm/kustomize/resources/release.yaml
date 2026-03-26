@@ -18,15 +18,4 @@ spec:
   postRenderers: []
   values:
     poppy:
-      urls:
-        public: https://poppy.k8s.spietras.dev
-      scorpion:
-        public:
-          scheme: https
-          host: scorpion.k8s.spietras.dev
-          port: null
       debug: false
-  valuesFrom:
-    - kind: Secret
-      name: poppy-helm-secrets-values
-      valuesKey: values.yaml

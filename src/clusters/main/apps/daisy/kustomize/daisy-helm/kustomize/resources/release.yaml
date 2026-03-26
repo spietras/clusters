@@ -18,15 +18,4 @@ spec:
   postRenderers: []
   values:
     daisy:
-      urls:
-        public: https://daisy.k8s.spietras.dev
-      scorpion:
-        public:
-          scheme: https
-          host: scorpion.k8s.spietras.dev
-          port: null
       debug: false
-  valuesFrom:
-    - kind: Secret
-      name: daisy-helm-secrets-values
-      valuesKey: values.yaml
