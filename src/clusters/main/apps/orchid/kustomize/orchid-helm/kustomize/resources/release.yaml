@@ -18,21 +18,19 @@ spec:
   postRenderers: []
   values:
     orchid:
-      urls:
-        public: https://orchid.k8s.spietras.dev
-      falcon:
-        public:
-          scheme: https
-          host: falcon.k8s.spietras.dev
-          port: null
-      crocus:
-        public:
-          scheme: https
-          host: crocus.k8s.spietras.dev
-          port: null
+      debug: false
       oidc:
         google:
           domain: radioaktywne.pl
+      urls:
+        crocus:
+          host: crocus.k8s.spietras.dev
+          port: null
+          scheme: https
+        falcon:
+          host: falcon.k8s.spietras.dev
+          port: null
+          scheme: https
   valuesFrom:
     - kind: Secret
       name: orchid-helm-secrets-values
