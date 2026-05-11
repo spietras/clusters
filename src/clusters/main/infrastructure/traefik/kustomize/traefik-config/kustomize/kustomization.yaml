@@ -1,7 +1,18 @@
 # Create traefik-config Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+# Include the following replacements
+replacements:
+  - path: replacements/oidc.yaml
 # Include the following resources
 resources:
+  - resources/middleware/oidc.yaml
+  - resources/routes/oidc.yaml
   - resources/certificate.yaml
   - resources/store.yaml
+# Generate secrets
+secretGenerator:
+  - files:
+      - client-secret=secrets/client-secret
+      - session-encryption-key=secrets/session-encryption-key
+    name: traefik-config-secrets-oidc

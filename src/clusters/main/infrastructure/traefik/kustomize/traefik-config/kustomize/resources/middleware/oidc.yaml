@@ -1,0 +1,40 @@
+# Create OIDC middleware
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: oidc
+spec:
+  plugin:
+    traefikoidc:
+      allowOpaqueTokens: true
+      callbackURL: /auth/callback
+      clientAuthMethod: client_secret_basic
+      clientID: traefik
+      clientSecret: urn:k8s:secret:traefik-config-secrets-oidc:client-secret
+      cookieDomain: spietras.dev
+      cookiePrefix: __Http-traefik-oidc-
+      enableFrontchannelLogout: true
+      frontchannelLogoutURL: /auth/logout/frontchannel
+      enablePKCE: true
+      headers:
+        - name: X-User-ID
+          value: "{{{{.Claims.sub}}}}"
+        - name: X-User-Traits
+          value: "{{{{.Claims.traits}}}}"
+      logLevel: debug
+      logoutURL: /auth/logout
+      maxRefreshTokenAgeSeconds: 2592000
+      minimalHeaders: true
+      overrideScopes: true
+      postLogoutRedirectURI: ""
+      providerURL: https://scorpion.k8s.spietras.dev
+      refreshGracePeriodSeconds: 600
+      requireTokenIntrospection: true
+      scopes:
+        - openid
+        - profile
+        - offline_access
+      sessionEncryptionKey: urn:k8s:secret:traefik-config-secrets-oidc:session-encryption-key
+      sessionMaxAge: 2592000
+      strictAudienceValidation: true
+      stripAuthCookies: true
