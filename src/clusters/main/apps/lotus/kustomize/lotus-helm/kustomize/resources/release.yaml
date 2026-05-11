@@ -16,6 +16,3 @@ spec:
         name: radio-aktywne
   # This key always needs to be here for patching to work
   postRenderers: []
-  values:
-    lotus:
-      debug: false

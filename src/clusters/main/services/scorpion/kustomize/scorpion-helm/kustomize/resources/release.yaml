@@ -27,7 +27,6 @@ spec:
           scheme: https
           host: crocus.k8s.spietras.dev
           port: null
-      debug: false
   valuesFrom:
     - kind: Secret
       name: scorpion-helm-secrets-values
