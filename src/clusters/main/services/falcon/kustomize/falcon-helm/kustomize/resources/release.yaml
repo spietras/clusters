@@ -31,7 +31,6 @@ spec:
       oidc:
         google:
           domain: radioaktywne.pl
-      debug: false
   valuesFrom:
     - kind: Secret
       name: falcon-helm-secrets-values
