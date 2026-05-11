@@ -1,0 +1,8 @@
+# Configure vars transformer
+varReference:
+  - group: traefik.io
+    kind: Middleware
+    path: spec/plugin/traefikoidc/clientSecret
+  - group: traefik.io
+    kind: Middleware
+    path: spec/plugin/traefikoidc/sessionEncryptionKey

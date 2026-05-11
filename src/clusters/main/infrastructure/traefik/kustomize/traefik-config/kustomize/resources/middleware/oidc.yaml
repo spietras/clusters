@@ -10,7 +10,7 @@ spec:
       callbackURL: /auth/callback
       clientAuthMethod: client_secret_basic
       clientID: traefik
-      clientSecret: urn:k8s:secret:traefik-config-secrets-oidc:client-secret
+      clientSecret: urn:k8s:secret:$(TRAEFIK_CONFIG_SECRETS_OIDC):client-secret
       cookieDomain: spietras.dev
       cookiePrefix: __Http-traefik-oidc-
       enableFrontchannelLogout: true
@@ -34,7 +34,7 @@ spec:
         - openid
         - profile
         - offline_access
-      sessionEncryptionKey: urn:k8s:secret:traefik-config-secrets-oidc:session-encryption-key
+      sessionEncryptionKey: urn:k8s:secret:$(TRAEFIK_CONFIG_SECRETS_OIDC):session-encryption-key
       sessionMaxAge: 2592000
       strictAudienceValidation: true
       stripAuthCookies: true
