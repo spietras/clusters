@@ -166,6 +166,10 @@ spec:
         protocol: TCP
         # Port to use inside the cluster
         port: 9993
+    providers:
+      kubernetesCRD:
+        # Allow cross-namespace references in resources
+        allowCrossNamespace: true
     service:
       annotations:
         # Use custom machine name in Tailscale
