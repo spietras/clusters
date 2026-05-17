@@ -2,8 +2,7 @@
 nameReference:
   - kind: Secret
     fieldSpecs:
-      # Replace secret name in dragonfly HelmRelease
+      # Replace secret names in HelmReleases
       - group: helm.toolkit.fluxcd.io
         kind: HelmRelease
-        name: dragonfly
         path: spec/values/passwordFromSecret/existingSecret/name
