@@ -7,15 +7,17 @@ spec:
   plugin:
     traefikoidc:
       allowOpaqueTokens: true
+      backchannelLogoutURL: /auth/logout/backchannel
       callbackURL: /auth/callback
       clientAuthMethod: client_secret_basic
       clientID: traefik
       clientSecret: urn:k8s:secret:$(TRAEFIK_CONFIG_SECRETS_OIDC):client-secret
       cookieDomain: spietras.dev
       cookiePrefix: __Http-traefik-oidc-
+      enableBackchannelLogout: true
       enableFrontchannelLogout: true
-      frontchannelLogoutURL: /auth/logout/frontchannel
       enablePKCE: true
+      frontchannelLogoutURL: /auth/logout/frontchannel
       headers:
         - name: X-User-ID
           value: "{{{{.Claims.sub}}}}"
@@ -28,6 +30,14 @@ spec:
       overrideScopes: true
       postLogoutRedirectURI: ""
       providerURL: https://scorpion.k8s.spietras.dev
+      redis:
+        address: dragonfly.traefik.svc.cluster.local:6379
+        cacheMode: hybrid
+        enabled: true
+        enableCircuitBreaker: true
+        enableHealthCheck: true
+        keyPrefix: "traefik:oidc:"
+        password: urn:k8s:secret:$(TRAEFIK_CONFIG_SECRETS_OIDC):dragonfly-password
       refreshGracePeriodSeconds: 600
       requireTokenIntrospection: true
       scopes:

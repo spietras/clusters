@@ -9,6 +9,8 @@ spec:
   dependsOn:
     # Deploy Helm release first
     - name: traefik-helm
+    # Deploy state first
+    - name: traefik-state
     # Deploy cert-manager first
     - name: cert-manager
   # This key always needs to be here for patching to work

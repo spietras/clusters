@@ -1,0 +1,9 @@
+# Configure names transformer
+nameReference:
+  - kind: Secret
+    fieldSpecs:
+      # Replace secret name in dragonfly HelmRelease
+      - group: helm.toolkit.fluxcd.io
+        kind: HelmRelease
+        name: dragonfly
+        path: spec/values/passwordFromSecret/existingSecret/name
