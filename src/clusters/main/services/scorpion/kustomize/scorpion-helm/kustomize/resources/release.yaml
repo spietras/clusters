@@ -21,6 +21,8 @@ spec:
       clients:
         traefik:
           client_id: traefik
+          backchannel_logout_session_required: true
+          backchannel_logout_uri: https://k8s.spietras.dev/auth/logout/backchannel
           frontchannel_logout_session_required: true
           frontchannel_logout_uri: https://k8s.spietras.dev/auth/logout/frontchannel
           grant_types:

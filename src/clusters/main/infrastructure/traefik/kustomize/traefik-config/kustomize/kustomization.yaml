@@ -13,8 +13,9 @@ resources:
 # Generate secrets
 secretGenerator:
   - files:
-      - client-secret=secrets/client-secret
-      - session-encryption-key=secrets/session-encryption-key
+      - client-secret=secrets/oidc/client-secret
+      - dragonfly-password=secrets/oidc/dragonfly-password
+      - session-encryption-key=secrets/oidc/session-encryption-key
     name: traefik-config-secrets-oidc
 # Define variables
 # Variables are deprecated, but new replacements don't work as expected
