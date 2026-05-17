@@ -48,10 +48,6 @@ spec:
             - code
           scope: openid profile offline_access
           token_endpoint_auth_method: client_secret_basic
-      urls:
-        issuer: https://scorpion.k8s.spietras.dev
-        public: https://scorpion.k8s.spietras.dev
-        admin: https://admin.scorpion.k8s.spietras.dev
       crocus:
         public:
           scheme: https
@@ -63,6 +59,10 @@ spec:
         tokens:
           access: 1h
           refresh: 720h
+      urls:
+        issuer: https://scorpion.k8s.spietras.dev
+        public: https://scorpion.k8s.spietras.dev
+        admin: https://admin.scorpion.k8s.spietras.dev
   valuesFrom:
     - kind: Secret
       name: scorpion-helm-secrets-values
