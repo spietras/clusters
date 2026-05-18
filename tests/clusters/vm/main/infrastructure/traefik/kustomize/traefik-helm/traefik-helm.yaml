@@ -37,6 +37,14 @@ spec:
           values:
             service:
               enabled: false
+    # Remove OIDC plugin
+    - target:
+        group: helm.toolkit.fluxcd.io
+        kind: HelmRelease
+        name: traefik
+      patch: |-
+        - op: remove
+          path: /spec/values/experimental/plugins/traefikoidc
     # Remove dingo-srt port
     - target:
         group: helm.toolkit.fluxcd.io
