@@ -24,20 +24,20 @@ spec:
       # yamllint disable rule:line-length
       headers:
         - name: X-User-ID
-          value: '{{ (.Claims).sub | default "" }}'
+          value: '{{ .Claims.sub | default "" }}'
         - name: X-User-Traits-Locales-Preferred
-          value: '{{ (((.Claims).traits).locales).preferred | default "" }}'
+          value: '{{ ((.Claims.traits).locales).preferred | default "" }}'
         - name: X-User-Traits-Names-Display
-          value: '{{ (((.Claims).traits).names).display | default "" }}'
+          value: '{{ ((.Claims.traits).names).display | default "" }}'
         - name: X-User-Traits-Pictures-Profile-URL
-          value: '{{ ((((.Claims).traits).pictures).profile).url | default "" }}'
+          value: '{{ (((.Claims.traits).pictures).profile).url | default "" }}'
       # yamllint enable rule:line-length
       logLevel: debug
       logoutURL: /auth/logout
       maxRefreshTokenAgeSeconds: 2592000
       minimalHeaders: true
       overrideScopes: true
-      postLogoutRedirectURI: ""
+      postLogoutRedirectURI: /
       providerURL: https://scorpion.k8s.spietras.dev
       redis:
         address: dragonfly.traefik.svc.cluster.local:6379
@@ -56,3 +56,4 @@ spec:
       sessionMaxAge: 2592000
       strictAudienceValidation: true
       stripAuthCookies: true
+      userIdentifierClaim: sub

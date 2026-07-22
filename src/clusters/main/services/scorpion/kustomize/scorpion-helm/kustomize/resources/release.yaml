@@ -29,16 +29,16 @@ spec:
             - authorization_code
             - refresh_token
           post_logout_redirect_uris:
-            - https://flux.k8s.spietras.dev
-            - https://headlamp.k8s.spietras.dev
-            - https://longhorn.k8s.spietras.dev
-            - https://aster.k8s.spietras.dev
-            - https://daisy.k8s.spietras.dev
-            - https://jasmine.k8s.spietras.dev
-            - https://lotus.k8s.spietras.dev
-            - https://magnolia.k8s.spietras.dev
-            - https://poppy.k8s.spietras.dev
-            - https://tulip.k8s.spietras.dev
+            - https://flux.k8s.spietras.dev/
+            - https://headlamp.k8s.spietras.dev/
+            - https://longhorn.k8s.spietras.dev/
+            - https://aster.k8s.spietras.dev/
+            - https://daisy.k8s.spietras.dev/
+            - https://jasmine.k8s.spietras.dev/
+            - https://lotus.k8s.spietras.dev/
+            - https://magnolia.k8s.spietras.dev/
+            - https://poppy.k8s.spietras.dev/
+            - https://tulip.k8s.spietras.dev/
           redirect_uris:
             - https://flux.k8s.spietras.dev/auth/callback
             - https://headlamp.k8s.spietras.dev/auth/callback
