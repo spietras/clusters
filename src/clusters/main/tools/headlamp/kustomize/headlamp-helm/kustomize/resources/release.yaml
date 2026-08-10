@@ -18,8 +18,6 @@ spec:
   postRenderers: []
   values:
     config:
-      # Enable Helm integration
-      enableHelm: true
       # Use service account for authentication with Kubernetes API
       # This means no authentication is required to access headlamp
       unsafeUseServiceAccountToken: true
