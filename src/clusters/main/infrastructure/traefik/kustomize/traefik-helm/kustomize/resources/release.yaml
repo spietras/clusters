@@ -41,6 +41,13 @@ spec:
       web: null
       websecure: null
       metrics: null
+      # Internal management port
+      traefik:
+        expose:
+          # Don't expose through the LoadBalancer
+          default: false
+        # Port to use inside the cluster
+        port: 9000
       # Port for HTTP traffic
       http:
         # Expose it outside the cluster
@@ -55,7 +62,7 @@ spec:
               scheme: https
               to: https
         # Port to use inside the cluster
-        port: 8000
+        port: 80
         # HTTP traffic uses TCP
         protocol: TCP
       # Port for HTTPS traffic
@@ -70,7 +77,7 @@ spec:
           tls:
             enabled: true
         # Port to use inside the cluster
-        port: 8443
+        port: 443
         # Secure web traffic uses TCP
         protocol: TCP
       # Port for TLS over TCP traffic
@@ -169,6 +176,11 @@ spec:
       kubernetesCRD:
         # Allow cross-namespace references in resources
         allowCrossNamespace: true
+    securityContext:
+      capabilities:
+        add:
+          # Allow binding privileged ports with the chart's non-root defaults
+          - NET_BIND_SERVICE
     service:
       annotations:
         # Use custom machine name in Tailscale

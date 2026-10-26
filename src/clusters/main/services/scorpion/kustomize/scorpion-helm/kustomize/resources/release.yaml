@@ -40,6 +40,7 @@ spec:
             - https://poppy.k8s.spietras.dev/
             - https://tulip.k8s.spietras.dev/
           redirect_uris:
+            - https://k8s.spietras.dev/auth/callback
             - https://flux.k8s.spietras.dev/auth/callback
             - https://headlamp.k8s.spietras.dev/auth/callback
             - https://longhorn.k8s.spietras.dev/auth/callback
