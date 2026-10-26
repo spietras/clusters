@@ -22,7 +22,21 @@ spec:
         - name: poppy
           # This is the name of the port in the service
           port: http
-    # Bypass OIDC by default
+    # Enable impersonation when requested by the header
+    - match: >-
+        Host(`poppy.k8s.spietras.dev`) &&
+        Header(`X-Traefik-Middleware-Impersonate`, `true`)
+      kind: Rule
+      middlewares:
+        # Use impersonation middleware
+        - name: impersonate
+          namespace: traefik
+      services:
+        # Route traffic to the poppy service
+        - name: poppy
+          # This is the name of the port in the service
+          port: http
+    # Bypass middleware by default
     - match: Host(`poppy.k8s.spietras.dev`)
       kind: Rule
       services:

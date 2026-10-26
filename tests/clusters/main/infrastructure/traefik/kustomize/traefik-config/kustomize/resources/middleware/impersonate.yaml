@@ -1,0 +1,11 @@
+# Create impersonation middleware
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: impersonate
+spec:
+  headers:
+    customRequestHeaders:
+      X-User-ID: test
+      X-User-Traits-Names-Display: Test User
+      X-User-Traits-Locales-Preferred: en
