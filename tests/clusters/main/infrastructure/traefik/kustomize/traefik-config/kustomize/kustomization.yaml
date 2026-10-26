@@ -4,4 +4,5 @@ kind: Kustomization
 # Include the following resources
 resources:
   - resources/middleware/oidc.yaml
-  - resources/routes/oidc.yaml
+  - resources/routes/logout-backchannel.yaml
+  - resources/routes/logout-frontchannel.yaml

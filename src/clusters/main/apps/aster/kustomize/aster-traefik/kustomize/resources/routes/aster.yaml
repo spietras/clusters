@@ -1,0 +1,32 @@
+# Create HTTP ingress route for aster
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: aster
+spec:
+  entryPoints:
+    # Use entrypoint for HTTPS traffic
+    - https
+  routes:
+    # Enable OIDC when requested by the header
+    - match: >-
+        Host(`aster.k8s.spietras.dev`) &&
+        Header(`X-Traefik-Middleware-OIDC`, `true`)
+      kind: Rule
+      middlewares:
+        # Use OIDC middleware
+        - name: oidc
+          namespace: traefik
+      services:
+        # Route traffic to the aster service
+        - name: aster
+          # This is the name of the port in the service
+          port: http
+    # Bypass OIDC by default
+    - match: Host(`aster.k8s.spietras.dev`)
+      kind: Rule
+      services:
+        # Route traffic to the aster service
+        - name: aster
+          # This is the name of the port in the service
+          port: http
