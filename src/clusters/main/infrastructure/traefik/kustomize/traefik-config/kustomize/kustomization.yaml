@@ -6,6 +6,7 @@ configurations:
   - configurations/vars.yaml
 # Include the following resources
 resources:
+  - resources/middleware/impersonate.yaml
   - resources/middleware/oidc.yaml
   - resources/routes/logout-backchannel.yaml
   - resources/routes/logout-frontchannel.yaml
