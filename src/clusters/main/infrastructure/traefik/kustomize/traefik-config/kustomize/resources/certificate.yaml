@@ -39,6 +39,7 @@ spec:
     - "*.orchid.k8s.spietras.dev"
     - "*.podinfo.k8s.spietras.dev"
     - "*.poppy.k8s.spietras.dev"
+    - "*.sunflower.k8s.spietras.dev"
     - "*.tulip.k8s.spietras.dev"
   # Use Let's Encrypt to issue the certificate
   issuerRef:

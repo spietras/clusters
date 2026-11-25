@@ -38,7 +38,7 @@ spec:
       maxRefreshTokenAgeSeconds: 2592000
       minimalHeaders: true
       overrideScopes: true
-      postLogoutRedirectURI: /
+      postLogoutRedirectURI: https://crocus.k8s.spietras.dev/logout/callback
       providerURL: https://scorpion.k8s.spietras.dev
       redis:
         address: dragonfly.traefik.svc.cluster.local:6379

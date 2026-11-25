@@ -16,3 +16,14 @@ spec:
         name: radio-aktywne
   # This key always needs to be here for patching to work
   postRenderers: []
+  values:
+    tulip:
+      urls:
+        orchid:
+          host: orchid.k8s.spietras.dev
+          port: null
+          scheme: https
+        sunflower:
+          host: sunflower.k8s.spietras.dev
+          port: null
+          scheme: https

@@ -28,6 +28,16 @@ spec:
           scheme: https
           host: orchid.k8s.spietras.dev
           port: null
+      redirects:
+        allowed:
+          - https://aster.k8s.spietras.dev
+          - https://daisy.k8s.spietras.dev
+          - https://jasmine.k8s.spietras.dev
+          - https://lotus.k8s.spietras.dev
+          - https://magnolia.k8s.spietras.dev
+          - https://poppy.k8s.spietras.dev
+          - https://sunflower.k8s.spietras.dev
+          - https://tulip.k8s.spietras.dev
       oidc:
         google:
           domain: radioaktywne.pl

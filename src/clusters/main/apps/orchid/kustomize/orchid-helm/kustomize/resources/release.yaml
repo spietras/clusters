@@ -30,6 +30,10 @@ spec:
           host: falcon.k8s.spietras.dev
           port: null
           scheme: https
+        sunflower:
+          host: sunflower.k8s.spietras.dev
+          port: null
+          scheme: https
   valuesFrom:
     - kind: Secret
       name: orchid-helm-secrets-values

@@ -1,0 +1,47 @@
+# Create sunflower Helm release
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: sunflower
+spec:
+  chart:
+    spec:
+      # Use this chart from the repository
+      chart: sunflower
+      # Pin version to major
+      version: "0.x"
+      # Use this Helm repository
+      sourceRef:
+        kind: HelmRepository
+        name: radio-aktywne
+  # This key always needs to be here for patching to work
+  postRenderers: []
+  values:
+    sunflower:
+      apps:
+        - emoji: 🎤
+          name: Studio
+          url: https://poppy.k8s.spietras.dev
+        - emoji: 🎭
+          name: Audycje
+          url: https://tulip.k8s.spietras.dev
+        - emoji: 💽
+          name: Playlisty
+          url: https://lotus.k8s.spietras.dev
+        - emoji: 📼
+          name: Archiwum
+          url: https://magnolia.k8s.spietras.dev
+        - emoji: 🛋️
+          name: Nagrania
+          url: https://jasmine.k8s.spietras.dev
+        - emoji: 🧼
+          name: Transmisja
+          url: https://aster.k8s.spietras.dev
+        - emoji: 📅
+          name: Operacje
+          url: https://daisy.k8s.spietras.dev
+      urls:
+        orchid:
+          host: orchid.k8s.spietras.dev
+          port: null
+          scheme: https

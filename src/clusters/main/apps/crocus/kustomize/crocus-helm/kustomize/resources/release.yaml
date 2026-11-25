@@ -23,6 +23,10 @@ spec:
           host: orchid.k8s.spietras.dev
           port: null
           scheme: https
+        scorpion:
+          host: scorpion.k8s.spietras.dev
+          port: null
+          scheme: https
   valuesFrom:
     - kind: Secret
       name: crocus-helm-secrets-values
