@@ -19,25 +19,25 @@ spec:
   values:
     sunflower:
       apps:
-        - emoji: "🎤"
+        - emoji: 🎤
           name: Studio
           url: https://poppy.k8s.spietras.dev
-        - emoji: "🎭"
+        - emoji: 🎭
           name: Audycje
           url: https://tulip.k8s.spietras.dev
-        - emoji: "💽"
+        - emoji: 💽
           name: Playlisty
           url: https://lotus.k8s.spietras.dev
-        - emoji: "📼"
+        - emoji: 📼
           name: Archiwum
           url: https://magnolia.k8s.spietras.dev
-        - emoji: "🛋️"
+        - emoji: 🛋️
           name: Nagrania
           url: https://jasmine.k8s.spietras.dev
-        - emoji: "🧼"
+        - emoji: 🧼
           name: Transmisja
           url: https://aster.k8s.spietras.dev
-        - emoji: "📅"
+        - emoji: 📅
           name: Operacje
           url: https://daisy.k8s.spietras.dev
       urls:
