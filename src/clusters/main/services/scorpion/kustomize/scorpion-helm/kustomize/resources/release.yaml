@@ -36,6 +36,7 @@ spec:
             - https://headlamp.k8s.spietras.dev/auth/callback
             - https://longhorn.k8s.spietras.dev/auth/callback
             - https://aster.k8s.spietras.dev/auth/callback
+            - https://crocus.k8s.spietras.dev/auth/callback
             - https://daisy.k8s.spietras.dev/auth/callback
             - https://jasmine.k8s.spietras.dev/auth/callback
             - https://lotus.k8s.spietras.dev/auth/callback
